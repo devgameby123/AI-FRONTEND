@@ -1,0 +1,30 @@
+.List{
+    background-color: white;
+    border-radius: 2px;
+    width: 700px;
+    padding: 20px;
+    overflow-wrap: break-word;
+    
+}
+.text{
+    color: black;
+}
+
+.Comlist{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    gap: 10px;
+}
+.from-comment{
+    color: black;
+    width: 600px;
+    height: 65px;
+    padding: 2px;
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 60px;
+}
