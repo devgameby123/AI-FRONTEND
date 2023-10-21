@@ -19,12 +19,12 @@ const CardImage = [
 
 
 async function getData(c_name:string) {
-  const res = await fetch(`http://127.0.0.1:8000/Category/${c_name}`,{cache:"no-cache"})
+  const res = await fetch(`http://54.169.232.52:8000/Category/${c_name}`,{cache:"no-cache"})
   const data = res.json()
   return data
 }
 async function getDataRating() {
-  const res = await fetch(`http://127.0.0.1:8000/Rating`,{cache:"no-cache"})
+  const res = await fetch(`http://54.169.232.52:8000/Rating`,{cache:"no-cache"})
   const data = res.json()
   return data
 }
