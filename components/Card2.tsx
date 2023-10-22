@@ -44,8 +44,8 @@ const Card2 = ({Data,classNameCTN,classNameC,w = 350,h = 350,link="/"}:Props) =>
   const decodedImage = atob(base64String);
   return (
     <Link id={Data.id.toString()} className="Card" href={`/movie-info/${Data.id}`}>
-        <div className={classNameCTN}>
-            <div className={classNameC}>
+        <div id={Data.id.toString()} className={classNameCTN}>
+            <div id={Data.id.toString()} className={classNameC}>
             <Image className="image" src={`data:image/jpeg;base64,${decodedImage}`} width={w} height={h} alt="Image in Card"/>
             </div>
             <div className="time">

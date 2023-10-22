@@ -1,9 +1,7 @@
 import "./home.css"
 import "./globals.css"
-import Card from '../../components/Card';
+
 import Card2 from '../../components/Card2';
-import Carousel from '../../components/Carousel'
-import { useState, useEffect } from 'react';
 
 const images = [
   '/image1.jpg',
@@ -19,20 +17,20 @@ const CardImage = [
 
 
 async function getData(c_name:string) {
-  const res = await fetch(`http://54.169.232.52:8000/Category/${c_name}`,{cache:"no-cache"})
+  const res = await fetch(`http://52.221.250.124:8000/Category/${c_name}`)
   const data = res.json()
   return data
 }
 async function getDataRating() {
-  const res = await fetch(`http://54.169.232.52:8000/Rating`,{cache:"no-cache"})
+  const res = await fetch(`http://52.221.250.124:8000/Rating`)
   const data = res.json()
   return data
 }
 
 async function renderimage() {
   const data = await getDataRating();
-  const realData:[] = data['data']
-      return realData.map((d) => (
+  const realData:[] = await data['data']
+      return await realData.map((d) => (
       <>  
           <Card2 Data={d} classNameCTN="container-card2" classNameC="container-image2" w={266} h={344}/>
       </>
@@ -42,9 +40,9 @@ async function renderimage() {
 
 async function renderimage1() {
   const data = await getData('Comedy');
-  const realData:[] = data['data']
+  const realData:[] = await data['data']
 
-      return realData.map((d) => (
+      return await realData.map((d) => (
       <>  
           <Card2 Data={d} classNameCTN="container-card2" classNameC="container-image2" w={266} h={344}/>
       </>
@@ -52,19 +50,19 @@ async function renderimage1() {
 }
 async function renderimage2() {
   const data = await getData('Horror');
-  const realData:[] = data['data']
+  const realData:[] = await data['data']
 
-  return realData.map((d) => (
+  return await realData.map((d) => (
       <>  
           <Card2 Data={d} classNameCTN="container-card2" classNameC="container-image2" w={266} h={344}/>
       </>
   ));
 }
 async function renderimage3() {
-  const data = await getData('Science Fiction');
-  const realData:[] = data['data']
+  const data = await getData('Horror');
+  const realData:[] = await data['data']
 
-  return realData.map((d) => (
+  return await realData.map((d) => (
       <>  
           <Card2 Data={d} classNameCTN="container-card2" classNameC="container-image2" w={266} h={344}/>
       </>
@@ -72,9 +70,9 @@ async function renderimage3() {
 }
 async function renderimage4() {
   const data = await getData('Action');
-  const realData:[] = data['data']
+  const realData:[] = await data['data']
 
-  return realData.map((d) => (
+  return await realData.map((d) => (
       <>  
           <Card2 Data={d} classNameCTN="container-card2" classNameC="container-image2" w={266} h={344}/>
       </>
