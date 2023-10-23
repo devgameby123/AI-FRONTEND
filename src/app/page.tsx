@@ -3,26 +3,14 @@ import "./globals.css"
 
 import Card2 from '../../components/Card2';
 
-const images = [
-  '/image1.jpg',
-  '/image2.jpg',
-];
-const CardImage = [
-  '/Card/co4.jpeg',
-  '/Card/co4.jpeg',
-  '/Card/co4.jpeg',
-  '/Card/co4.jpeg',
-]
-
-
 
 async function getData(c_name:string) {
-  const res = await fetch(`http://52.221.250.124:8000/Category/${c_name}`)
+  const res = await fetch(`http://52.221.250.124:8000/Category/${c_name}`,{next:{revalidate:3000}})
   const data = res.json()
   return data
 }
 async function getDataRating() {
-  const res = await fetch(`http://52.221.250.124:8000/Rating`)
+  const res = await fetch(`http://52.221.250.124:8000/Rating`,{next:{revalidate:3000}})
   const data = res.json()
   return data
 }

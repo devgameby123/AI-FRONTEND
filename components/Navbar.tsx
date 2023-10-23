@@ -4,28 +4,28 @@ import "./navbar.css"
 import Image from 'next/image'
 import Button from './Button'
 
+
+
 type Props = {}
 
 function Navbar({}: Props) {
+  const handleSearch = (query: string) => {
+    // Add your search logic here, e.g., fetch data based on the query
+    console.log(`Searching for: ${query}`);
+  };
+
   return (
     <nav className='navbar'>
-        <div className='box'>
+        <Link  className='box' href={"/"}>
           <Image src={"/Logo.png"} width={50} height={50} alt='Logo'/>
           <span>บริษัท เพื่อน มี จำกัด</span>
-        </div>
+        </Link>
         <ul>
-            
             <Link className='link' href={"/"}>Home</Link>
             <span> | </span>
             <Link className='link' href={"/#TRENDING"}>TRENDING</Link>
             <span> | </span>
-            <Link className='link' href={"/#COMEDY"}>COMEDY</Link>
-            <span> | </span>
-            <Link className='link' href={"/#HORROR"}>HORROR</Link>
-            <span> | </span>
-            <Link className='link' href={"/#SCIFI"}>SCI FI</Link>
-            <span> | </span>
-            <Link className='link' href={"/#ACTION"}>ACTION</Link>
+            <Link className='link' href={"/#TRENDING"}>Category</Link>
         </ul>
     </nav>
   )

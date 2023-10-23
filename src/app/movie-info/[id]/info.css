@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;500&display=swap');
 body{
+    background-color: rgb(9, 9, 9);
     color: white;
 }
 .container{
@@ -130,10 +131,8 @@ p{
     display: flex;
     width: 100vw;
     gap: 20px;
-    flex-direction: column;
-    justify-content: end;
+    flex-direction: column-reverse;
+    justify-content: start;
     align-items: center;
-    height:360px;
-    overflow: hidden;
-    scroll-behavior: smooth;
+    height:500px;
 }

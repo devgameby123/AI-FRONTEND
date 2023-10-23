@@ -41,12 +41,12 @@ const User = () => {
   const handleSubmit = async (commentText: string) => {
   
     addCommentClient(commentText);
-  
+    /*
     const formData = new FormData();
     const formData2 = new FormData();
     const jsonData = { cmt_text: commentText, m_id: id };
     const jsonData2 = { text: commentText,m_id: id};
-  
+
     formData.append('cmt_data', new Blob([JSON.stringify(jsonData)], { type: 'application/json' }));
     formData2.append('file', new Blob([JSON.stringify(jsonData2)], { type: 'application/json' }));
   
@@ -71,14 +71,15 @@ const User = () => {
       }
     } catch (error) {
       console.error('Error:', error);
-    }
+    }*/
   };
 
   const addCommentClient = (comment: string) => {
-    setCommentsClient([...commentsClient, comment]);
+    setCommentsClient([comment, ...commentsClient]);
   };
 
   const [comments, setComments] = useState([]);
+  const [timeat, setTimeat] = useState([]);
   const [userData, setUserData] = useState(null);
   const [sentiment, setSentiment] = useState<SentimentObj>({
     cmt_id: 0,
@@ -94,6 +95,7 @@ const User = () => {
       const datacmt = await getComment(id.toString());
       const Allcomment:[] = datacmt['data'];
       setComments(Allcomment.map((d)=>d['cmt_text']))
+      setTimeat(Allcomment.map((d)=>d['create_at']))
 
       const datasen = await getSentiment(id.toString());
       const sampleData = {
@@ -143,11 +145,12 @@ const User = () => {
       </div>
     </div>
     <div className='coment-nakub'>
-      <div className='comment-list'>
-        <CommentList comments={comments} />
-        <CommentList comments={commentsClient} />
-      </div>
       <CommentForm onSubmit={handleSubmit} />
+      <div className='comment-list'>
+        <CommentList comments={comments} timeAt={timeat} />
+        <CommentList comments={commentsClient} timeAt={timeat} />
+      </div>
+      
     </div>
     
   </div>
