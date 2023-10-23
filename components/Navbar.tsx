@@ -6,7 +6,6 @@ import Button from './Button'
 import { TextField } from '@mui/material'
 import Dropdown from './Dropdown'
 
-
 type Props = {}
 
 function Navbar({}: Props) {
@@ -26,7 +25,9 @@ function Navbar({}: Props) {
             <span> | </span>
             <Link className='link' href={"/#TRENDING"}>TRENDING</Link>
             <span> | </span>
-            <Dropdown/>
+            <span>
+              <Dropdown/>
+            </span>
         </ul>
     </nav>
   )

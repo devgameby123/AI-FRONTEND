@@ -1,0 +1,7 @@
+.container-content-sm{
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    margin: 400px 200px 0px 200px;
+    align-items: center;
+}
