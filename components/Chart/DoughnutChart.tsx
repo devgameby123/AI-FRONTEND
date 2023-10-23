@@ -1,6 +1,6 @@
 // Importing necessary modules
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
-import { Pie } from 'react-chartjs-2';
+import { Doughnut } from 'react-chartjs-2';
 
 // Registering Chart.js elements
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -19,21 +19,20 @@ type Props = {
 };
 
 // Functional component for the PieChart
-function PieChart({ width, height,Data }: Props) {
+function DoughnutChart({ width, height,Data }: Props) {
 
   const data = {
-    labels: ['Nagative', 'Positive'],
     datasets: [
       {
         label: '# of Votes',
         data: [Data.Negative,Data.Positive],
         backgroundColor: [
-          'rgba(255, 0, 0, 0.7)',
-          'rgba(0, 255, 42, 1)',
+          'rgba(200,64,64,1)',
+          'rgba(60,164,85,1)',
         ],
         borderColor: [
-          'rgba(255, 0, 0, 0.7)',
-          'rgba(0, 255, 42, 1)',
+          'rgba(200,64,64,1)',
+          'rgba(60,164,85,1)',
         ],
         borderWidth: 1,
       },
@@ -51,9 +50,9 @@ function PieChart({ width, height,Data }: Props) {
   };
 
   return (
-    <Pie width={width} height={height} data={data} options={options} />
+    <Doughnut width={width} height={height} data={data} options={options} />
   );
 }
 
 // Exporting the PieChart component
-export default PieChart;
+export default DoughnutChart;

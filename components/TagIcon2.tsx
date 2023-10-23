@@ -1,5 +1,5 @@
 import React from 'react'
-import './button.css'
+import './tagbar.css'
 import Image from 'next/image';
 
 type Props = {
@@ -7,17 +7,18 @@ type Props = {
   , children ?: string,
   image:string,
   w:number,
-  h:number,
-  gap:number;
+  h:number;
 }
-function ButtonImage({className, children,image,w,h,gap }: Props) { 
+function TagIcon2({className, children,image,w,h}: Props) { 
   return (
     <div className='container-icon'>
-        <Image  src={image} width={w} height={h} alt='asdasd'/>
+        <div>
+          <Image  src={image} width={w} height={h}alt='asdasd'/>
+        </div>
         <div  className={className}>{children}</div>
     </div>
    
   )
 }
 
-export default ButtonImage
+export default TagIcon2
