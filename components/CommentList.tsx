@@ -22,14 +22,26 @@ const CommentList: React.FC<CommentListProps> = ({ comments, timeAt }) => {
         } else if (secondsDiff < 3600) {
           const minutes = Math.floor(secondsDiff / 60);
           return `${minutes} minute${minutes > 1 ? 's' : ''} ago`;
-        } else {
+        } else if (secondsDiff < 86400) {
           const hours = Math.floor(secondsDiff / 3600);
           const remainingMinutes = Math.floor((secondsDiff % 3600) / 60);
-
+        
           if (remainingMinutes === 0) {
             return `${hours} hour${hours > 1 ? 's' : ''} ago`;
           } else {
             return `${hours} hour${hours > 1 ? 's' : ''} ${remainingMinutes} minute${remainingMinutes > 1 ? 's' : ''} ago`;
+          }
+        } else if (secondsDiff < 604800) {
+          const days = Math.floor(secondsDiff / 86400);
+          return `${days} day${days > 1 ? 's' : ''} ago`;
+        } else {
+          const weeks = Math.floor(secondsDiff / 604800);
+          const remainingDays = Math.floor((secondsDiff % 604800) / 86400);
+        
+          if (remainingDays === 0) {
+            return `${weeks} week${weeks > 1 ? 's' : ''} ago`;
+          } else {
+            return `${weeks} week${weeks > 1 ? 's' : ''} ${remainingDays} day${remainingDays > 1 ? 's' : ''} ago`;
           }
         }
       });

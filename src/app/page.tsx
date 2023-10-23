@@ -1,7 +1,9 @@
+
 import "./home.css"
 import "./globals.css"
 
 import Card2 from '../../components/Card2';
+
 
 
 async function getData(c_name:string) {
