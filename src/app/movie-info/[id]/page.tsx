@@ -167,7 +167,7 @@ const User = () => {
     <div className='AllChart'>
       <div className='doughnut-container'>
         <div className='Chart'>
-          <DoughnutChart Data={sentiment} width={250} height={250}/>
+          <DoughnutChart Data={sentiment} width={200} height={250}/>
         </div>
         <div className='posNag-info'>
           <span className='NumPositive'><p>{sentiment.Positive}</p><p>Positive</p></span>
