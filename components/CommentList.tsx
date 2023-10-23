@@ -2,7 +2,7 @@
 import React from 'react';
 import './Comment.css'
 interface CommentListProps {
-  comments: string[];
+  comments: string[],
 }
 
 const CommentList: React.FC<CommentListProps> = ({ comments }) => {

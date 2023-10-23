@@ -38,7 +38,6 @@ function page({}: Props) {
 
       <TagIcon image='/time.png' className='tagRating' w={20} h={15} marginL={5}>2:10:00</TagIcon>
 
-      <TagIcon2 image='/time.png' className='time2' w={20} h={5} gap={5}>2:10:00</TagIcon2>
 
       <Tagbar className='tagTime'>2:10:00</Tagbar>
 

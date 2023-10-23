@@ -14,23 +14,15 @@
     background-color: red;
     color: white;
 }
+
 .back-color-white{
     background-color: white;
     color: black;
 }
 .tagTime{
-    display: inline-block;
-    border-radius: 5px;
-    background-color: transparent;
-    border: 2px solid #f44336;
-    background-color: #f44336;
-    color: #FFFFFF;
-    text-align: center;
-    font-size: 16px;
-    width: 83px; 
-    height: 34px;
-    padding: 2px;
-    margin-left: 10px;   
+    display: flex;
+    color: white;
+    padding-left: 4px;
 }
 
 .tagSeason{
@@ -61,14 +53,18 @@
     display: inline-block;
     border-radius: 5px;
     color: #FFFFFF;
-  
+    padding-left: 4px; 
 }
 
 .tagRating{  
+    display: flex;
     color: #FFFFFF;
+    padding-left: 4px;
 }
 
 .container-iconTagbar {
     display:flex;
-
+}
+.container-icon{
+    display:flex;
 }

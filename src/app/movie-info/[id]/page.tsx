@@ -4,12 +4,15 @@ import { useParams } from 'next/navigation';
 import Card from '../../../../components/Card3';
 import Tagbar from '../../../../components/Tagbar';
 import Button from '../../../../components/Button';
-import PieChart from '../../../../components/Chart/PieChart';
+import DoughnutChart from '../../../../components/Chart/DoughnutChart';
+import LineChart from '../../../../components/Chart/LineChart';
 import Card2 from '../../../../components/Card2';
 import CommentForm from '../../../../components/CommentForm';
 import CommentList from '../../../../components/CommentList';
 import { GetServerSideProps } from 'next';
 import Image from 'next/image';
+import TagIcon2 from '../../../../components/TagIcon2';
+import TagIcon from '../../../../components/TagIcon';
 import "./info.css";
 
 interface SentimentObj{
@@ -111,9 +114,25 @@ const User = () => {
     return <div>Loading...</div>;
   }
 
+  function formatTime(minutes: number): string {
+    const hours = Math.floor(minutes / 60);
+    const remainingMinutes = minutes % 60;
+  
+    if (hours === 0) {
+        return `${remainingMinutes} m`;
+    }
+  
+    if (remainingMinutes === 0) {
+        return `${hours} h`;
+    }
+  
+    return `${hours} h ${remainingMinutes} m`;
+  }
+
   let ReadData = userData
   const base64String = ReadData['Image']; const decodedImage = atob(base64String); const ShowImage = `data:image/jpeg;base64,${decodedImage}`
   let AllTag:[] = ReadData['Tag']
+  let time = ReadData['duration']
 
   return (
     <>
@@ -126,22 +145,43 @@ const User = () => {
       <p >{ReadData['m_name']}</p>
     </div>
     <div className='info-content'>
+          <div className='info'>
+            <TagIcon2 image='/time.png' className='tagTime' w={20} h={20}>{formatTime(time)}</TagIcon2>
+            <TagIcon2 image='/calendar.png' className='tagDate' w={20} h={15}>2022</TagIcon2>
+            <TagIcon2 image='/star2.png' className='tagRating' w={20} h={5}>{ReadData['rating']}</TagIcon2>
+          </div>
           <div className='tag'>
             {AllTag.map(data=> (<><Tagbar className="tagCategory back-color-white">{data}</Tagbar></>) )}
+          </div>
+          <div className='tag'>
+            <p className='text-info'>นำแสดงโดย</p>
+          </div>
+          <div className='tag'>
+            <p className='text-info'>mr.A, Mr.B, Miss C</p>
           </div>
           <div>
             <p className='text-info'>{ReadData['story']}</p>
           </div>
     </div>
-    <div className='pei-container'>
-      <div className='Chart'>
-        <PieChart Data={sentiment} width={400} height={400}/>
+
+    <div className='AllChart'>
+      <div className='doughnut-container'>
+        <div className='Chart'>
+          <DoughnutChart Data={sentiment} width={250} height={250}/>
+        </div>
+        <div className='posNag-info'>
+          <span className='NumPositive'><p>{sentiment.Positive}</p><p>Positive</p></span>
+          <span className='NumNagative'><p>{sentiment.Negative}</p><p>Nagative</p></span>
+        </div>
       </div>
-      <div className='posNag-info'>
-        <span className='NumPositive'><p>{sentiment.Positive}</p><p>Positive</p></span>
-        <span className='NumNagative'><p>{sentiment.Negative}</p><p>Nagative</p></span>
+
+      <div className='line-container'>
+        <div className='Chart'>
+          <LineChart width={800} height={400}/>
+        </div>
       </div>
     </div>
+
     <div className='coment-nakub'>
       <div className='comment-list'>
         <CommentList comments={comments} />
