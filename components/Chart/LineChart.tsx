@@ -13,6 +13,7 @@ import { Line } from 'react-chartjs-2';
 
 ChartJS.defaults.font.size = 18;
 ChartJS.defaults.font.weight = 'bold';
+ChartJS.defaults.color = 'white';
 // Registering Chart.js elements
 ChartJS.register(
   CategoryScale,
