@@ -3,7 +3,6 @@ import React from 'react'
 import "./navbar.css"
 import Image from 'next/image'
 import Button from './Button'
-import { TextField } from '@mui/material'
 import Dropdown from './Dropdown'
 
 type Props = {}

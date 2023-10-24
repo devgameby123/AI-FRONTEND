@@ -54,7 +54,7 @@ const User = () => {
     formData2.append('file', new Blob([JSON.stringify(jsonData2)], { type: 'application/json' }));
   
     try {
-      const response = await fetch('http://52.221.250.124:8000/comment', {
+      const response = await fetch('http://54.254.190.127:8000/comment', {
         method: 'POST',
         body: formData,
       });
@@ -63,7 +63,7 @@ const User = () => {
       } else {
         console.error('Failed to create comment');
       }
-      const response2 = await fetch('http://52.221.250.124:8000/predict', {
+      const response2 = await fetch('http://54.254.190.127:8000/predict', {
         method: 'POST',
         body: formData2,
       });
@@ -140,7 +140,7 @@ const User = () => {
     <>
   <div className='container'>
     <div className='back-image'>
-      <Image style={{filter: "blur(3px) brightness(40%)",}} src={"/image2.png"} width={1980} height={1080} alt='Background'/>
+      <Image style={{filter: "blur(3px) brightness(40%)",}} src={"/image2.png"} width={1980} height={1060} alt='Background'/>
     </div>
     <div className='card-single'>
       <Card image={ShowImage}  w={315} h={426} />
@@ -150,47 +150,54 @@ const User = () => {
           <div className='info'>
             <TagIcon2 image='/time.png' className='tagTime' w={20} h={20}>{formatTime(time)}</TagIcon2>
             <TagIcon2 image='/calendar.png' className='tagDate' w={20} h={15}>2022</TagIcon2>
-            <TagIcon2 image='/star2.png' className='tagRating' w={20} h={5}>{ReadData['rating']}</TagIcon2>
+            <TagIcon2 image='/rating2.png' className='tagRating2' w={25} h={15}>{ReadData['rating']}</TagIcon2>
           </div>
           <div className='tag'>
             {AllTag.map(data=> (<><Tagbar className="tagCategory back-color-white">{data}</Tagbar></>) )}
           </div>
+
           <div className='tag'>
-            <p className='text-info'>นำแสดงโดย</p>
+            <p className='text-info'>Starring</p>
           </div>
           <div className='tag'>
-            <p className='text-info'>mr.A, Mr.B, Miss C</p>
+            <p className='text-narmal'>Mr Aaaa, Mr Bbbbb</p>
           </div>
-          <div>
-            <p className='text-info'>{ReadData['story']}</p>
+
+          <div className='tag'>
+            <p className='text-info'>Writers</p>
+          </div>
+          <div className='tag'>
+            <p className='text-narmal'>Mr Aaaa, Mr Bbbbb</p>
+          </div>
+          
+          <div className='tag'>
+            <p className='text-info'>Director</p>
+          </div>
+          <div className='tag'>
+            <p className='text-narmal'>Mr Aaaa, Mr Bbbbb</p>
           </div>
     </div>
 
-    <div className='AllChart'>
-      <div className='doughnut-container'>
-        <div className='Chart'>
-          <DoughnutChart Data={sentiment} width={200} height={250}/>
-        </div>
-        <div className='posNag-info'>
-          <span className='NumPositive'><p>{sentiment.Positive}</p><p>Positive</p></span>
-          <span className='NumNagative'><p>{sentiment.Negative}</p><p>Nagative</p></span>
-        </div>
-      </div>
-
-      <div className='line-container'>
-        <div className='Chart'>
-          <LineChart width={800} height={400}/>
-        </div>
-      </div>
+    <div>
+      <p className='text-story'>{ReadData['story']}</p>
     </div>
 
+    <div className='doughnut-container'>
+        <div className='Chart1'>
+          <DoughnutChart Data={sentiment} width={300} height={300}/>
+          <div className='posNag-info'>
+            <span className='NumPositive'><p>{sentiment.Positive}</p><p>Positive</p></span>
+            <span className='NumNagative'><p>{sentiment.Negative}</p><p>Negative</p></span>
+          </div>
+        </div>
+    </div>
+    
     <div className='coment-nakub'>
       <CommentForm onSubmit={handleSubmit} />
       <div className='comment-list'>
         <CommentList comments={comments} timeAt={timeat} />
         <CommentList comments={commentsClient} timeAt={timeat} />
       </div>
-      
     </div>
     
   </div>

@@ -35,3 +35,6 @@
     margin-left: 2px;
     z-index: 10;
 }
+.categoryDrop{
+    gap: 4px;
+}
