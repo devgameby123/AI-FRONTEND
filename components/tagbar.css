@@ -58,8 +58,11 @@
 
 .tagRating{  
     display: flex;
-    color: #FFFFFF;
+    color: #2aff1b;
     padding-left: 4px;
+    margin-left: 100px;
+    font-size: 18px;
+    font-weight: bold;
 }
 
 .container-iconTagbar {
@@ -67,4 +70,15 @@
 }
 .container-icon{
     display:flex;
+}
+.Tagtime{
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: auto;
+    background-color: rgb(255, 57, 57);
+    border-radius: 10px;
+    margin-left: 4px;
 }

@@ -49,8 +49,8 @@ const Card2 = ({Data,classNameCTN,classNameC,w = 350,h = 350,link="/"}:Props) =>
             <Image className="image" src={`data:image/jpeg;base64,${decodedImage}`} width={w} height={h} alt="Image in Card"/>
             </div>
             <div className="time">
-              <Tagbar className="tagTime">{formatTime(Data.duration)}</Tagbar>
-              <TagIcon image='/star.png' className='tagRating' w={50} h={5} marginL={20}>{Data.rating.toString()}</TagIcon>
+              <Tagbar className="Tagtime">{formatTime(Data.duration)}</Tagbar>
+              <Tagbar className='tagRating' >{Data.rating.toString()+'%'}</Tagbar>
             </div>
             <div className="info">
               <div className="Tag">

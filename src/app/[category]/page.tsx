@@ -24,6 +24,7 @@ const User = () => {
     const category = params.category;
   return (
     <>
+    <h1>{category}</h1>
     <div className="container-content-sm">
       {renderimage(category.toString())}
     </div>
