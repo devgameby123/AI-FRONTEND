@@ -7,12 +7,12 @@ import Card2 from '../../components/Card2';
 
 
 async function getData(c_name:string) {
-  const res = await fetch(`http://54.254.190.127:8000/Category/${c_name}/4`,{next:{revalidate:3000}})
+  const res = await fetch(`http://54.179.250.100:8000//Category/${c_name}/4`,{next:{revalidate:3000}})
   const data = res.json()
   return data
 }
 async function getDataRating() {
-  const res = await fetch(`http://54.254.190.127:8000/Rating/4`,{next:{revalidate:3000}})
+  const res = await fetch(`http://54.179.250.100:8000//Rating/4`,{next:{revalidate:3000}})
   const data = res.json()
   return data
 }

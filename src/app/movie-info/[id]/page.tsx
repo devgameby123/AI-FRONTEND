@@ -22,15 +22,15 @@ interface SentimentObj{
 }
 
 async function getData(id: string) {
-  const res = await fetch(`http://54.254.190.127:8000/movies/${id}`,{next:{revalidate:3000}});
+  const res = await fetch(`http://54.179.250.100:8000/movies/${id}`,{next:{revalidate:3000}});
   return res.json();
 }
 async function getComment(id: string) {
-  const res = await fetch(`http://54.254.190.127:8000/comment/${id}`, {next:{revalidate:3000}});
+  const res = await fetch(`http://54.179.250.100:8000/comment/${id}`, {next:{revalidate:3000}});
   return res.json();
 }
 async function getSentiment(id: string) {
-  const res = await fetch(`http://54.254.190.127:8000/sentiment/${id}`, {next:{revalidate:3000}});
+  const res = await fetch(`http://54.179.250.100:8000/sentiment/${id}`, {next:{revalidate:3000}});
   return res.json();
 }
 
@@ -140,7 +140,7 @@ const User = () => {
     <>
   <div className='container'>
     <div className='back-image'>
-      <Image style={{filter: "blur(3px) brightness(40%)",}} src={"/image2.png"} width={1980} height={1080} alt='Background'/>
+      <Image style={{filter: "blur(3px) brightness(40%)",}} src={"/image2.png"} width={1980} height={1060} alt='Background'/>
     </div>
     <div className='card-single'>
       <Card image={ShowImage}  w={315} h={426} />
@@ -150,7 +150,7 @@ const User = () => {
           <div className='info'>
             <TagIcon2 image='/time.png' className='tagTime' w={20} h={20}>{formatTime(time)}</TagIcon2>
             <TagIcon2 image='/calendar.png' className='tagDate' w={20} h={15}>2022</TagIcon2>
-            <TagIcon2 image='/star2.png' className='tagRating2' w={20} h={5}>{ReadData['rating']}</TagIcon2>
+            <TagIcon2 image='/rating2.png' className='tagRating2' w={25} h={15}>{ReadData['rating']}</TagIcon2>
           </div>
           <div className='tag'>
             {AllTag.map(data=> (<><Tagbar className="tagCategory back-color-white">{data}</Tagbar></>) )}
@@ -160,53 +160,44 @@ const User = () => {
             <p className='text-info'>Starring</p>
           </div>
           <div className='tag'>
-            <p className='text-info'>{ReadData['actor']}</p>
+            <p className='text-narmal'>Mr Aaaa, Mr Bbbbb</p>
           </div>
 
           <div className='tag'>
             <p className='text-info'>Writers</p>
           </div>
           <div className='tag'>
-            <p className='text-info'>{ReadData['writers']}</p>
+            <p className='text-narmal'>Mr Aaaa, Mr Bbbbb</p>
           </div>
           
           <div className='tag'>
             <p className='text-info'>Director</p>
           </div>
           <div className='tag'>
-            <p className='text-info'>{ReadData['director']}</p>
-          </div>
-          
-          <div>
-            <p className='text-info'>{ReadData['story']}</p>
+            <p className='text-narmal'>Mr Aaaa, Mr Bbbbb</p>
           </div>
     </div>
 
-    <div className='AllChart'>
-      <div className='doughnut-container'>
+    <div>
+      <p className='text-story'>{ReadData['story']}</p>
+    </div>
+
+    <div className='doughnut-container'>
         <div className='Chart1'>
-          <DoughnutChart Data={sentiment} width={200} height={250}/>
+          <DoughnutChart Data={sentiment} width={300} height={300}/>
           <div className='posNag-info'>
             <span className='NumPositive'><p>{sentiment.Positive}</p><p>Positive</p></span>
-            <span className='NumNagative'><p>{sentiment.Negative}</p><p>Nagative</p></span>
+            <span className='NumNagative'><p>{sentiment.Negative}</p><p>Negative</p></span>
           </div>
         </div>
-      </div>
-
-      <div className='line-container'>
-        <div className='Chart2'>
-          <LineChart width={600} height={400}/>
-        </div>
-      </div>
     </div>
-
+    
     <div className='coment-nakub'>
       <CommentForm onSubmit={handleSubmit} />
       <div className='comment-list'>
         <CommentList comments={comments} timeAt={timeat} />
         <CommentList comments={commentsClient} timeAt={timeat} />
       </div>
-      
     </div>
     
   </div>

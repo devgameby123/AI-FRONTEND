@@ -9,7 +9,7 @@ const Dropdown = (props: Props) => {
 
   return (
     <div className='dropdown activeDrop'>
-        <span className='link '>Category<Image className='imagein' src={'/calendar.png'} alt='hello' width={30} height={30}/></span>
+        <span className='link '>Category  <Image className='imagein' src={'/category.png'} alt='hello' width={25} height={25}/></span>
         <div className='dropdown-list'>
             <ul className='droptext'>
                 <Link className='link' href={'/Thriller'}>Thriller</Link>

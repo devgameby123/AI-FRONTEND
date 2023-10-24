@@ -43,7 +43,7 @@ for (let i = 0; i < 5; i++) {
   const today = new Date();
   today.setDate(today.getDate() - i);
   const dayMonth = `${today.getDate()}/${today.getMonth() + 1}`;
-  labels.push(dayMonth);
+  labels.unshift(dayMonth); // เพิ่มรายการในบรรทัดแรกของอาร์เรย์
 }
 
 function LineChart({ width, height}: Props) {
@@ -51,41 +51,47 @@ function LineChart({ width, height}: Props) {
     labels,
     datasets: [
       {
-        label: 'Positive',
+        label:'sentiment',
         data: [65, 59, 80, 81, 56, 55, 40],
         fill: false,
-        borderColor: 'rgba(60,164,85,1)',
+        borderColor: 'rgba(255,204,0,1)',
         tension: 0,
         point: {
           radius: 5, // ขนาดของจุด
-          backgroundColor: 'rgba(0, 255, 42, 1)', // สีของจุด
+          backgroundColor: 'rgba(600,164,0,1)', // สีของจุด
           hoverRadius: 8,
-          borderWidth:5,
           stlye:'circle',
         },
-      },
-      {
-        label: 'Negative',
-        data: [40, 60, 75, 44, 53, 43, 51],
-        fill: false,
-        borderColor: 'rgba(200,64,64,1)',
-        tension: 0,
-        point: {
-          radius: 5, // ขนาดของจุด
-          backgroundColor: 'rgba(255, 0, 0, 0.7)', // สีของจุด
-          hoverRadius: 8, // ขนาดของจุดเมื่อโฮเวอร์
-          borderWidth:5,
-          stlye:'circle',
-        },
+        borderWidth:3,
       },
     ],
   };
 
-  var options = {  
+  var options = {
+    scales: {
+      x: {
+        grid: {
+          color: 'white'
+        },
+          title: {
+            display: true,
+            text: 'day'
+          }
+      },
+      y: {
+        grid: {
+          color: 'white' 
+        },
+          title: {
+            display: true,
+            text: 'percentage(%)'
+          }
+      }
+  },
     responsive: true,
     plugins: {
       legend: {
-        position: 'top' as const,
+        position: 'right' as const,
       },
       title: {
         display: true,
