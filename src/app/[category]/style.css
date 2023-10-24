@@ -2,8 +2,10 @@
     display: flex;
     gap: 10px;
     justify-content: space-between;
+    align-content: start;
+    flex-wrap: wrap;
     margin: 10px 200px 0px 200px;
-    align-items: center;
+    
 }
 h1{
     margin: 100px 70px 0px 200px;
