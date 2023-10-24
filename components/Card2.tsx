@@ -27,6 +27,10 @@ interface MovieData{
   rating: number
   story: string
   Image: string
+  director: string
+  writers: string[]
+  actor: string[]
+  yearRelease: string
   Tag:string[]
 }
 type Props = {
