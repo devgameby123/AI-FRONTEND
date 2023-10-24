@@ -37,12 +37,12 @@ type Props = {
 };
 
 const labels: string[] = [];
-const today = new Date();
 
-for (let i = 0; i < 7; i++) {
-  const day = new Date(today);
-  day.setDate(today.getDate() - i);
-  labels.push(day.toISOString().split('T')[0]);
+for (let i = 0; i < 5; i++) {
+  const today = new Date();
+  today.setDate(today.getDate() - i);
+  const dayMonth = `${today.getDate()}/${today.getMonth() + 1}`;
+  labels.push(dayMonth);
 }
 
 function LineChart({ width, height}: Props) {
@@ -58,7 +58,9 @@ function LineChart({ width, height}: Props) {
         point: {
           radius: 5, // ขนาดของจุด
           backgroundColor: 'rgba(0, 255, 42, 1)', // สีของจุด
-          hoverRadius: 8, // ขนาดของจุดเมื่อโฮเวอร์
+          hoverRadius: 8,
+          borderWidth:5,
+          stlye:'circle',
         },
       },
       {
@@ -71,6 +73,8 @@ function LineChart({ width, height}: Props) {
           radius: 5, // ขนาดของจุด
           backgroundColor: 'rgba(255, 0, 0, 0.7)', // สีของจุด
           hoverRadius: 8, // ขนาดของจุดเมื่อโฮเวอร์
+          borderWidth:5,
+          stlye:'circle',
         },
       },
     ],

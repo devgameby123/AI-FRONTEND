@@ -150,17 +150,33 @@ const User = () => {
           <div className='info'>
             <TagIcon2 image='/time.png' className='tagTime' w={20} h={20}>{formatTime(time)}</TagIcon2>
             <TagIcon2 image='/calendar.png' className='tagDate' w={20} h={15}>2022</TagIcon2>
-            <TagIcon2 image='/star2.png' className='tagRating' w={20} h={5}>{ReadData['rating']}</TagIcon2>
+            <TagIcon2 image='/star2.png' className='tagRating2' w={20} h={5}>{ReadData['rating']}</TagIcon2>
           </div>
           <div className='tag'>
             {AllTag.map(data=> (<><Tagbar className="tagCategory back-color-white">{data}</Tagbar></>) )}
           </div>
+
           <div className='tag'>
-            <p className='text-info'>นำแสดงโดย</p>
+            <p className='text-info'>Starring</p>
           </div>
           <div className='tag'>
-            <p className='text-info'>mr.A, Mr.B, Miss C</p>
+            <p className='text-info'>{ReadData['actor']}</p>
           </div>
+
+          <div className='tag'>
+            <p className='text-info'>Writers</p>
+          </div>
+          <div className='tag'>
+            <p className='text-info'>{ReadData['writers']}</p>
+          </div>
+          
+          <div className='tag'>
+            <p className='text-info'>Director</p>
+          </div>
+          <div className='tag'>
+            <p className='text-info'>{ReadData['director']}</p>
+          </div>
+          
           <div>
             <p className='text-info'>{ReadData['story']}</p>
           </div>
@@ -168,18 +184,18 @@ const User = () => {
 
     <div className='AllChart'>
       <div className='doughnut-container'>
-        <div className='Chart'>
+        <div className='Chart1'>
           <DoughnutChart Data={sentiment} width={200} height={250}/>
-        </div>
-        <div className='posNag-info'>
-          <span className='NumPositive'><p>{sentiment.Positive}</p><p>Positive</p></span>
-          <span className='NumNagative'><p>{sentiment.Negative}</p><p>Nagative</p></span>
+          <div className='posNag-info'>
+            <span className='NumPositive'><p>{sentiment.Positive}</p><p>Positive</p></span>
+            <span className='NumNagative'><p>{sentiment.Negative}</p><p>Nagative</p></span>
+          </div>
         </div>
       </div>
 
       <div className='line-container'>
-        <div className='Chart'>
-          <LineChart width={800} height={400}/>
+        <div className='Chart2'>
+          <LineChart width={600} height={400}/>
         </div>
       </div>
     </div>

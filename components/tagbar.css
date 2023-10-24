@@ -23,6 +23,7 @@
     display: flex;
     color: white;
     padding-left: 4px;
+    font-weight: bold;
 }
 
 .tagSeason{
@@ -54,6 +55,7 @@
     border-radius: 5px;
     color: #FFFFFF;
     padding-left: 4px; 
+    font-weight: bold;
 }
 
 .tagRating{  
@@ -61,6 +63,13 @@
     color: #2aff1b;
     padding-left: 4px;
     margin-left: 100px;
+    font-size: 18px;
+    font-weight: bold;
+}
+.tagRating2{  
+    display: flex;
+    color: #FFFFFF;
+    padding-left: 4px;
     font-size: 18px;
     font-weight: bold;
 }

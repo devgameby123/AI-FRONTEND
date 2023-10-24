@@ -56,6 +56,7 @@ p{
     font-size: 16px;
     color: white;
     width: 50rem;
+    font-weight: bold;
 }
 
 .Container-Card .text-head{
@@ -112,12 +113,13 @@ p{
 }
 .doughnut-container{
     margin-top: 80px;
-    margin-left: 180px;
-    display: flex;
+}
+.Chart1{
+    width: fit-content;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
-    width: 100vw;
-    justify-content: left;
-    align-items: left;
+    display: flex;
 }
 .posNag-info{
     margin-top: 20px;
@@ -144,17 +146,11 @@ p{
 }
 .line-container{
     margin-top: 40px;
-    margin-right: 180px;
     font-size: 30px;
+    width: fit-content;
 }
 .AllChart{
+    gap: 60px;
     display: flex;
-}
-.line-container{
-    margin-top: 40px;
-    margin-right: 180px;
-    font-size: 30px;
-}
-.AllChart{
-    display: flex;
+    justify-content: center;
 }
