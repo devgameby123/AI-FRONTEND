@@ -22,15 +22,15 @@ interface SentimentObj{
 }
 
 async function getData(id: string) {
-  const res = await fetch(`http://52.221.250.124:8000/movies/${id}`,{next:{revalidate:3000}});
+  const res = await fetch(`http://54.254.190.127:8000/movies/${id}`,{next:{revalidate:3000}});
   return res.json();
 }
 async function getComment(id: string) {
-  const res = await fetch(`http://52.221.250.124:8000/comment/${id}`, {next:{revalidate:3000}});
+  const res = await fetch(`http://54.254.190.127:8000/comment/${id}`, {next:{revalidate:3000}});
   return res.json();
 }
 async function getSentiment(id: string) {
-  const res = await fetch(`http://52.221.250.124:8000/sentiment/${id}`, {next:{revalidate:3000}});
+  const res = await fetch(`http://54.254.190.127:8000/sentiment/${id}`, {next:{revalidate:3000}});
   return res.json();
 }
 
@@ -54,7 +54,7 @@ const User = () => {
     formData2.append('file', new Blob([JSON.stringify(jsonData2)], { type: 'application/json' }));
   
     try {
-      const response = await fetch('http://52.221.250.124:8000/comment', {
+      const response = await fetch('http://54.254.190.127:8000/comment', {
         method: 'POST',
         body: formData,
       });
@@ -63,7 +63,7 @@ const User = () => {
       } else {
         console.error('Failed to create comment');
       }
-      const response2 = await fetch('http://52.221.250.124:8000/predict', {
+      const response2 = await fetch('http://54.254.190.127:8000/predict', {
         method: 'POST',
         body: formData2,
       });
