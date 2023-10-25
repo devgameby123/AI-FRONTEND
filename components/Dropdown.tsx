@@ -8,8 +8,8 @@ type Props = {}
 const Dropdown = (props: Props) => {
 
   return (
-    <div className='dropdown activeDrop'>
-        <span className='link '>Category  <Image className='imagein' src={'/category.png'} alt='hello' width={25} height={25}/></span>
+    <div className='dropdown activeDrop '>
+        <span className='link '>Category  𐊼</span>
         <div className='dropdown-list'>
             <ul className='droptext'>
                 <Link className='link' href={'/Thriller'}>Thriller</Link>
@@ -21,6 +21,7 @@ const Dropdown = (props: Props) => {
                 <Link className='link' href={'/Action'}>Action</Link>
                 <Link className='link' href={'/Mystery'}>Mystery</Link>
                 <Link className='link' href={'/Science Fiction'}>Sci Fi</Link>
+                <Link className='link' href={'/Allmovie'}>All Movie</Link>
 
             </ul>
         </div>

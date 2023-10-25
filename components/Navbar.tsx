@@ -9,20 +9,14 @@ type Props = {}
 
 function Navbar({}: Props) {
 
- 
-
   return (
     <nav className='navbar'>
         <Link  className='box' href={"/"}>
           <Image src={"/Logo.png"} width={50} height={50} alt='Logo'/>
           <span>บริษัท เพื่อน มี จำกัด</span>
         </Link>
-        
         <ul>
-
-            <Link className='link' href={"/"}>Home</Link>
-            <span> | </span>
-            <Link className='link' href={"/#TRENDING"}>TRENDING</Link>
+            <Link className='link' href={"/#TRENDING"}>Recommend</Link>
             <span> | </span>
             <span>
               <Dropdown/>

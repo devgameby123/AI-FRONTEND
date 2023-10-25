@@ -22,15 +22,15 @@ interface SentimentObj{
 }
 
 async function getData(id: string) {
-  const res = await fetch(`http://54.179.250.100:8000/movies/${id}`,{next:{revalidate:3000}});
+  const res = await fetch(`http://127.0.0.1:8000/movies/${id}`,{next:{revalidate:3000}});
   return res.json();
 }
 async function getComment(id: string) {
-  const res = await fetch(`http://54.179.250.100:8000/comment/${id}`, {next:{revalidate:3000}});
+  const res = await fetch(`http://127.0.0.1:8000/comment/${id}`, {next:{revalidate:3000}});
   return res.json();
 }
 async function getSentiment(id: string) {
-  const res = await fetch(`http://54.179.250.100:8000/sentiment/${id}`, {next:{revalidate:3000}});
+  const res = await fetch(`http://127.0.0.1:8000/sentiment/${id}`, {next:{revalidate:3000}});
   return res.json();
 }
 
@@ -44,7 +44,7 @@ const User = () => {
   const handleSubmit = async (commentText: string) => {
   
     addCommentClient(commentText);
-    /*
+  
     const formData = new FormData();
     const formData2 = new FormData();
     const jsonData = { cmt_text: commentText, m_id: id };
@@ -54,7 +54,7 @@ const User = () => {
     formData2.append('file', new Blob([JSON.stringify(jsonData2)], { type: 'application/json' }));
   
     try {
-      const response = await fetch('http://54.254.190.127:8000/comment', {
+      const response = await fetch('http://127.0.0.1:8000/comment', {
         method: 'POST',
         body: formData,
       });
@@ -63,7 +63,7 @@ const User = () => {
       } else {
         console.error('Failed to create comment');
       }
-      const response2 = await fetch('http://54.254.190.127:8000/predict', {
+      const response2 = await fetch('http://127.0.0.1:8001/predict', {
         method: 'POST',
         body: formData2,
       });
@@ -74,7 +74,7 @@ const User = () => {
       }
     } catch (error) {
       console.error('Error:', error);
-    }*/
+    }
   };
 
   const addCommentClient = (comment: string) => {
@@ -136,6 +136,10 @@ const User = () => {
   let AllTag:[] = ReadData['Tag']
   let time = ReadData['duration']
 
+  const start:[] = ReadData['actor']
+  const writers:[] = ReadData['writers']
+  const yearRelease = ReadData['yearRelease']
+  const director = ReadData['director']
   return (
     <>
   <div className='container'>
@@ -147,40 +151,45 @@ const User = () => {
       <p >{ReadData['m_name']}</p>
     </div>
     <div className='info-content'>
+          
           <div className='info'>
             <TagIcon2 image='/time.png' className='tagTime' w={20} h={20}>{formatTime(time)}</TagIcon2>
-            <TagIcon2 image='/calendar.png' className='tagDate' w={20} h={15}>2022</TagIcon2>
-            <TagIcon2 image='/rating2.png' className='tagRating2' w={25} h={15}>{ReadData['rating']}</TagIcon2>
+            <TagIcon2 image='/calendar.png' className='tagDate' w={20} h={15}>{yearRelease}</TagIcon2>
+            <TagIcon2 image='/rating2.png' className='tagRating2' w={25} h={15}>{ReadData['sentiment']+'%'}</TagIcon2>
           </div>
           <div className='tag'>
             {AllTag.map(data=> (<><Tagbar className="tagCategory back-color-white">{data}</Tagbar></>) )}
           </div>
 
           <div className='tag'>
-            <p className='text-info'>Starring</p>
+            <p className='text-info'>Start</p>
           </div>
           <div className='tag'>
-            <p className='text-narmal'>Mr Aaaa, Mr Bbbbb</p>
+            <p className='text-narmal'>{start.map((d=>d+" , "))}</p>
           </div>
 
           <div className='tag'>
             <p className='text-info'>Writers</p>
           </div>
           <div className='tag'>
-            <p className='text-narmal'>Mr Aaaa, Mr Bbbbb</p>
+            <p className='text-narmal'>{writers.map((d=>d+" , "))}</p>
           </div>
           
           <div className='tag'>
             <p className='text-info'>Director</p>
           </div>
           <div className='tag'>
-            <p className='text-narmal'>Mr Aaaa, Mr Bbbbb</p>
+            <p className='text-narmal'>{director}</p>
+          </div>
+          <div className='tag'>
+            <p className='text-info'>Story</p>
+          </div >
+          <div className='tag'>
+          <p className='text-story'>{ReadData['story']}</p>
           </div>
     </div>
 
-    <div>
-      <p className='text-story'>{ReadData['story']}</p>
-    </div>
+   
 
     <div className='doughnut-container'>
         <div className='Chart1'>

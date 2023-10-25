@@ -61,7 +61,7 @@ const CommentList: React.FC<CommentListProps> = ({ comments, timeAt }) => {
         {comments.map((comment, index) => (
           <>
           <div className='List' key={index}>
-            <p className='text timeText'>{timeDifferences[index]}</p>
+       
             <p className='text'>{comment}</p>
           </div>
           </>  

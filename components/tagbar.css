@@ -60,11 +60,11 @@
 
 .tagRating{  
     display: flex;
-    color: #2aff1b;
+    color: #37ff41;
+    text-shadow: 2px 2px 3px rgb(0, 0, 0);
     padding-left: 4px;
-    margin-left: 100px;
     font-size: 18px;
-    font-weight: bold;
+    font-weight: 450;
 }
 .tagRating2{  
     display: flex;
@@ -76,6 +76,9 @@
 
 .container-iconTagbar {
     display:flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 .container-icon{
     display:flex;

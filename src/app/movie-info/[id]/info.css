@@ -21,7 +21,7 @@ p{
     display: flex;
 }
 .card-single p{
-    margin-top: 130px;
+    margin-top: 30px;
     margin-left: 1rem;
     font-size: 42px;
     color: white;
@@ -46,7 +46,7 @@ p{
 }
 .info-content{
     position: absolute;
-    top: 407px;
+    top: 300px;
     left: 430px;
     display: flex;
     flex-direction: column;
@@ -63,8 +63,8 @@ p{
     font-size: 16px;
     color: white;
     width: 600px;
-    font-weight: bold;
-    margin-left: 100Px;
+    font-weight: 500;
+    margin-left: 0;
 }
 .Container-Card .text-head{
     font-size: 26px;
@@ -157,4 +157,10 @@ p{
     margin-top: 40px;
     font-size: 30px;
     width: fit-content;
+}
+.doughnut-container{
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
 }
